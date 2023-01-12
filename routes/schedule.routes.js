@@ -28,7 +28,7 @@ scheduleRoute.get('/all', async (req, res) => {
     }
 })
 
-scheduleRoute.get('one-schedule/:id', async (req, res) => {
+scheduleRoute.get('get/:id', async (req, res) => {
     try {
 
         const { id } = req.params
@@ -36,7 +36,7 @@ scheduleRoute.get('one-schedule/:id', async (req, res) => {
         const schedule = await ScheduleModel.findById(id)
 
         if (!schedule) {
-            return res.status(404).json({ msg: "Agendamento não encontrado!" })
+            return res.status(400).json({ msg: "Agendamento não encontrado!" })
         }
 
         return res.status(200).json(schedule)

@@ -25,7 +25,7 @@ const scheduleSchema = new Schema({
     },
     status: {
         type: Boolean,
-        dafault: false
+        default: false
     }
 },
 {
