@@ -29,7 +29,7 @@ userRoute.get('/all-users', async (req, res) => {
     }
 })
 
-userRoute.get('one-user/:id', async (req, res) => {
+userRoute.get('/one-user/:id', async (req, res) => {
     try {
 
         const { id } = req.params

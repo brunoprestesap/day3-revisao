@@ -28,7 +28,7 @@ scheduleRoute.get('/all', async (req, res) => {
     }
 })
 
-scheduleRoute.get('get/:id', async (req, res) => {
+scheduleRoute.get('/get/:id', async (req, res) => {
     try {
 
         const { id } = req.params
