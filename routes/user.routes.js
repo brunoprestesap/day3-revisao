@@ -1,4 +1,5 @@
 import express from 'express'
+import TaskModel from '../model/task.model.js'
 import UserModel from '../model/user.model.js'
 
 const userRoute = express.Router()
@@ -76,6 +77,8 @@ userRoute.delete('/delete/:id', async (req, res) => {
         if (!deletedUser) {
             return res.status(404).json({ msg: "Usuário não encontrado!" })
         }
+
+        await TaskModel.deleteMany({ user: id })
 
         return res.status(200).json(deletedUser)
 
