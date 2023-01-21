@@ -29,15 +29,15 @@ userRoute.get('/all-users', async (req, res) => {
     }
 })
 
-userRoute.get('one-user/:id', async (req, res) => {
+userRoute.get("/oneuser/:id", async (req, res) => {
     try {
 
         const { id } = req.params
 
-        const user = await UserModel.findById(id)
+        const user = await UserModel.findById(id).populate("tasks")
 
         if (!user) {
-            return res.status(404).json({ msg: "Usuário não encontrado!" })
+            return res.status(400).json({ msg: "Usuário não encontrado!" })
         }
 
         return res.status(200).json(user)
